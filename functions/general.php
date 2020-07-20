@@ -1,5 +1,6 @@
 <?php
 namespace general;
+use main;
 
 function alert($message){
     ?><script>alert("<?php echo $message; ?>")</script><?php
@@ -13,6 +14,7 @@ function encode($array){
 
     return substr($to_return, 0, strlen($to_return) - 1);
 }
+
 
 function get_group($level) {
     switch ($level) {

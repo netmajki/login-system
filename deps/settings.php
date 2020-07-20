@@ -15,3 +15,6 @@ function get_connection(){
 
     return $connection;
 }
+
+$default_encryption_key = 'awuNVAVFGJ6NFPeE78mdegw3hkknv2kH';
+$default_encryption_iv = 'dhwPF67YfpG5UqsV';

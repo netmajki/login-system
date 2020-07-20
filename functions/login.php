@@ -14,11 +14,11 @@ function update_user_hwid($username, $new_hwid){
     get_connection()->query("UPDATE users SET hwid=? WHERE username=?", [$new_hwid, $username]);
 }
 
-function check_user_hwid($user_data, $hwid) {
+function check_user_hwid($user_data, $hwid){
     if ($user_data["hwid"] == '0')
         get_connection()->query("UPDATE users SET hwid=? WHERE username=?", [$hwid, $user_data["username"]]);
 
-    if ($user_data["hwid"] != $hwid)
+    else if ($user_data["hwid"] != $hwid)
         return main\responses::wrong_hwid;
 
     return main\responses::success;
