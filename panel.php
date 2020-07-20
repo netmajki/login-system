@@ -14,7 +14,7 @@ if(isset($_POST["submit"]))
 </head>
 <body>
 <label>hey <?php echo $_SESSION["username"]; ?></label> <br>
-<?php if($_SESSION["level"] >= 1) echo "<a href='admin/index.php'> admin panel </a><br>"; ?>
+<?php if($_SESSION["level"] >= 1) echo "<a href='admin/index.php'> admin panel </a><br><br>"; ?>
 <label>activate sub form</label>
 <form method="post">
     <label for="license">license</label> <br>

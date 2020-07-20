@@ -1,7 +1,7 @@
 <?php
 include_once '../deps/includes.php';
 
-if(!isset($_SESSION["level"]) || $_SESSION["level"] != 1) // 1 = admin?
+if(!isset($_SESSION["level"]) || $_SESSION["level"] < 1) // 1 = admin?
     header("Location: ../panel.php");
 
 if(isset($_POST["submit"])) {
@@ -20,7 +20,7 @@ if(isset($_POST["submit"])) {
     <title>s</title>
 </head>
 <body>
-<label>hey <?php echo $_SESSION["username"]; ?></label> <br>
+<label>hey <?php echo $_SESSION["username"]; ?></label> <br> <br>
 <label>generate licenses : </label> <br>
 
 <form method="post">
@@ -34,7 +34,26 @@ if(isset($_POST["submit"])) {
     <input type="text" id="level" name="level" /> <br>
 
     <button name="submit">submit</button>
-</form>
+</form> <br>
+<label>All licenses : </label>
+<table>
+    <tr>
+        <th>License</th>
+        <th>Days</th>
+        <th>Level</th>
+        <th>Used</th>
+    </tr>
+    <?php
+    $all = main\admin\fetch_all_licenses();
+    foreach($all as $single){
+        echo "<tr><td>{$single["license"]}</td>";
+        echo "<td>{$single["days"]}</td>";
+        echo "<td>{$single["level"]}</td>";
+        echo "<td>{$single["used"]}</td></tr>";
+    }
+    ?>
+</table>
+
 </body>
 </html>
 

@@ -1,6 +1,9 @@
 <?php
 include_once 'deps/includes.php';
 
+if(isset($_SESSION["username"]))
+    header("Location: panel.php");
+
 if(isset($_POST["submit"])){
     $username = $_POST["username"];
 

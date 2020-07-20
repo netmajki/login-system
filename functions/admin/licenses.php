@@ -2,6 +2,15 @@
 namespace main\admin;
 use general;
 
+function fetch_all_licenses($unused = false){
+    $db = get_connection();
+
+    $query = ($unused) ? $db->query("SELECT * FROM licenses WHERE used='0'")
+        : $db->query("SELECT * FROM licenses");
+
+    return $query->fetchAll();
+}
+
 function generate_licenses($amount, $days, $level){
     $db = get_connection();
 
