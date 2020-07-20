@@ -10,10 +10,6 @@ function fetch_user_data($username){
         : main\responses::user_doesnt_exist;
 }
 
-function update_user_hwid($username, $new_hwid){
-    get_connection()->query("UPDATE users SET hwid=? WHERE username=?", [$new_hwid, $username]);
-}
-
 function check_user_hwid($user_data, $hwid){
     if ($user_data["hwid"] == '0')
         get_connection()->query("UPDATE users SET hwid=? WHERE username=?", [$hwid, $user_data["username"]]);
