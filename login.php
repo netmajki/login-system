@@ -7,7 +7,8 @@ if(isset($_POST["submit"])){
     $resp = main\funcs\login($username, $_POST["password"]);
 
     if($resp == main\responses::success){
-        $_SESSION["username"] = $username;
+        $_SESSION["username"] = htmlentities($username);
+        $_SESSION["level"] = main\funcs\get_user_level($username);
 
         header("Location: panel.php");
     }

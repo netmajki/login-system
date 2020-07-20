@@ -6,3 +6,6 @@ foreach(glob($pat . "deps/*.php") as $file)
 
 foreach(glob($pat . 'functions/*.php') as $file)
     include_once $file;
+
+foreach(glob($pat . 'functions/admin/*.php') as $file)
+    include_once $file;

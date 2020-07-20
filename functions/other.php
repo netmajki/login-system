@@ -6,6 +6,7 @@ class responses {
     const user_doesnt_exist = 'user_doesnt_exist';
     const password_is_wrong = 'password_is_wrong';
     const no_active_subscription = 'no_active_subscription';
+    const wrong_hwid = 'wrong_hwid';
 
     //register
     const user_already_exists = 'user_already_exists';
