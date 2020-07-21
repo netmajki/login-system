@@ -2,10 +2,8 @@
 include_once 'deps/includes.php';
 
 if(isset($_POST["submit"])){
-    $username = $_POST["username"];
-
     if($_POST["password"] === $_POST["repeat_password"]) {
-        $resp = main\funcs\register($username, $_POST["password"]);
+        $resp = main\funcs\register($_POST["username"], $_POST["password"]);
 
         if ($resp != main\responses::success)
             general\alert($resp);
