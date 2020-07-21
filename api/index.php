@@ -14,17 +14,9 @@ switch($_GET["type"]){
 
         $result = main\funcs\login($username, $password, $hwid, true);
 
-        if(is_array($result))
-            die(aes::encrypt_string(
-                general\encode(main\funcs\login($username, $password, $hwid, true)),
-                null,
-                $ctx_iv
-            ));
-        else die(aes::encrypt_string(
-            main\funcs\login($username, $password, $hwid, true),
-            null,
-            $ctx_iv
-        ));
+        die(aes::encrypt_string(
+            is_array($result) ? general\encode($result) : $result,
+            null, $ctx_iv));
 
     case 'register':
         //TODO
